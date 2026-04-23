@@ -22,24 +22,25 @@ def get_rates():
     result = []
     for row in table.find_all("tr")[1:]:
         cells = row.find_all("td")
-        if len(cells) >= 4:
+        if len(cells) >= 5:
             result.append((
                 cells[0].get_text(strip=True),
                 cells[1].get_text(strip=True),
                 cells[2].get_text(strip=True),
                 cells[3].get_text(strip=True),
+                cells[4].get_text(strip=True),
             ))
 
     return result
 
 
 def show_table(data):
-    w = [14, 14, 30, 16]
+    w = [14, 14, 6, 30, 16]
 
-    def line(a, b, c, d):
-        return f"| {a:<{w[0]}} | {b:<{w[1]}} | {c:<{w[2]}} | {d:<{w[3]}} |"
+    def line(a, b, c, d, e):
+        return f"| {a:<{w[0]}} | {b:<{w[1]}} | {c:<{w[2]}} | {d:<{w[3]}} | {e:<{w[4]}} |"
 
-    header = line("Код цифровий", "Код літерний", "Назва валюти", "Офіційний курс")
+    header = line("Код цифровий", "Код літерний", "Од.", "Назва валюти", "Офіційний курс")
     print(header)
     print("-" * len(header))
 
