@@ -22,12 +22,13 @@ def get_rates():
     result = []
     for row in table.find_all("tr")[1:]:
         cells = row.find_all("td")
-        if len(cells) >= 4:
+        if len(cells) >= 5:
             result.append((
                 cells[0].get_text(strip=True),
                 cells[1].get_text(strip=True),
                 cells[2].get_text(strip=True),
                 cells[3].get_text(strip=True),
+                cells[4].get_text(strip=True),
             ))
 
     return result
