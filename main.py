@@ -33,23 +33,9 @@ def get_rates():
     return result
 
 
-def show_table(data):
-    w = [14, 14, 30, 16]
-
-    def line(a, b, c, d):
-        return f"| {a:<{w[0]}} | {b:<{w[1]}} | {c:<{w[2]}} | {d:<{w[3]}} |"
-
-    header = line("Код цифровий", "Код літерний", "Назва валюти", "Офіційний курс")
-    print(header)
-    print("-" * len(header))
-
-    for item in data:
-        print(line(*item))
-
-
 if __name__ == "__main__":
     data = get_rates()
     if data:
-        show_table(data)
+        print(data)
     else:
         print("Не вдалось отримати дані")
